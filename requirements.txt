@@ -1,0 +1,12 @@
+# Pipecat with the services this agent uses: Deepgram (STT+TTS),
+# OpenAI-compatible LLM (pointed at Groq), Silero VAD, Twilio serializer,
+# websocket transport, and the runner utilities.
+pipecat-ai[deepgram,openai,silero,websocket,runner]>=0.0.83
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-dotenv>=1.0
+pyyaml>=6.0
+aiohttp>=3.9
+loguru>=0.7
+# tests
+pytest>=8.0

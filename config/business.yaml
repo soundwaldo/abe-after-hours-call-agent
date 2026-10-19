@@ -1,0 +1,54 @@
+business:
+  name: "Arizona's Best Equipment"
+  short_name: "ABE"
+  tagline: "Forklift sales, rentals, parts and service — Phoenix, AZ"
+  address: "3455 S 36th St, Phoenix, AZ 85040"
+  phone: "(602) 437-2345"
+  # NOTE: hours conflict on record — website says 6:30 AM - 2:30 PM,
+  # Google Places shows 7:00 AM - 3:30 PM. Owner to confirm.
+  hours: "Monday to Friday, 6:30 AM to 2:30 PM Arizona time"
+  website: "https://arizonasbestequipment.com"
+
+services:
+  - "New and used forklift sales (Tailift dealer)"
+  - "Forklift rentals (daily / weekly / monthly)"
+  - "Mobile repair and planned maintenance"
+  - "Parts — all major brands"
+  - "OSHA inspections"
+  - "Financing options"
+
+# The voice agent answers when the shop can't: after hours, busy lines,
+# no-answer. It takes the lead, never quotes prices, never promises times.
+agent:
+  role: "after-hours intake assistant"
+  voice: "aura-2-thalia-en"   # Deepgram Aura voice; change to any Aura voice id
+  greeting: >
+    Thanks for calling Arizona's Best Equipment. You've reached our
+    automated assistant — the shop is currently closed, but I can take
+    your information and someone will call you back first thing in the
+    morning.
+
+intake:
+  # Fields the agent collects, in order. callback_number is read back
+  # to the caller for confirmation before the call ends.
+  fields:
+    - name
+    - callback_number
+    - company            # optional
+    - need_type          # repair | buy | rent | parts | other
+    - equipment          # e.g. "Toyota 5k lb sit-down"
+    - issue              # what's wrong / what's needed
+    - urgency            # down_now | safety | routine
+    - service_location   # where the equipment is (for service calls)
+  closing_line: >
+    Got it — I've flagged this for the team and someone will call you
+    back first thing in the morning. Thanks for calling Arizona's Best
+    Equipment.
+
+rules:
+  - "Never quote prices or rates."
+  - "Never promise a specific callback time beyond 'first thing in the morning'."
+  - "Never take payments or card details."
+  - "If the caller reports an injury or immediate danger, tell them to call 911 first."
+  - "If the caller asks for a human, take their info like any other lead."
+  - "Keep responses short — one or two sentences. This is a phone call."
