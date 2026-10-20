@@ -41,14 +41,14 @@ promises times beyond "first thing in the morning", and never takes payments.
 | Piece | Choice | Cost |
 |---|---|---|
 | Voice framework | [Pipecat](https://github.com/pipecat-ai/pipecat) (BSD-2-Clause, Python) | free |
-| Telephony | Twilio number + Media Streams | ~$1.15/mo + ~$0.014/min |
+| Telephony | Twilio number + Media Streams | ~$1.15/mo + ~$0.014/min (account requires a one-time $20 minimum deposit — prepaid credit that usage draws from) |
 | Speech-to-text | Deepgram Nova-3 (streaming) | free tier, then ~$0.004/min |
 | Brain | Groq `llama-3.3-70b-versatile` (OpenAI-compatible API) | free tier |
 | Text-to-speech | Deepgram Aura-2 | free tier, then per char |
 | Hosting | Railway (Dockerfile) | free tier / ~$5/mo |
 
-Realistic cost for a shop: **under $10/month** unless the phone never stops
-ringing.
+Realistic cost for a shop: a **one-time $20 Twilio account deposit** (prepaid
+credit), then **under $10/month** unless the phone never stops ringing.
 
 ## Setup
 
@@ -93,7 +93,7 @@ Health check: `GET /health`.
 
 ### 5. Wire up Twilio
 
-1. Buy a Twilio phone number (about $1.15/mo).
+1. Fund your Twilio account (one-time $20 minimum deposit — prepaid credit) and buy a Twilio phone number (about $1.15/mo, drawn from that balance).
 2. Set its **Voice webhook** to `POST https://<your-host>/voice`.
 3. On your carrier, set **forward-on-no-answer** (and/or after-hours schedule)
    from your real business number to the Twilio number. Your customers keep
